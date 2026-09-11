@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #050d1a;
+  --color-navy-900: #0a1628;
+  --color-navy-800: #0f1f3d;
+  --color-navy-700: #162d5a;
+  --color-navy-600: #1e3a6e;
+  --color-parchment-100: #f5e6c8;
+  --color-parchment-200: #e8d4a0;
+  --color-parchment-300: #d4b87a;
+  --color-brass-400: #d4a853;
+  --color-brass-500: #c9952a;
+  --color-brass-600: #a67c1a;
+  --color-ocean-500: #1a6b8a;
+  --color-ocean-400: #2a8ba8;
+  --color-ocean-300: #3dabbf;
+  --color-blood-500: #991b1b;
+  --color-blood-400: #dc2626;
+  --color-blood-300: #f87171;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-navy-600) var(--color-navy-900);
+}
+
+body {
+  background: var(--color-navy-950);
+  color: var(--color-parchment-100);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(212, 168, 83, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(212, 168, 83, 0.6); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(212, 168, 83, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.float-anim {
+  animation: float 3s ease-in-out infinite;
+}
+
+.parchment-panel {
+  background: linear-gradient(135deg, rgba(15, 31, 61, 0.95), rgba(10, 22, 40, 0.98));
+  border: 1px solid rgba(212, 168, 83, 0.2);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(212, 168, 83, 0.05);
+}
+
+.parchment-panel-highlight {
+  background: linear-gradient(135deg, rgba(15, 31, 61, 0.98), rgba(22, 45, 90, 0.9));
+  border: 1px solid rgba(212, 168, 83, 0.35);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(212, 168, 83, 0.1);
+}
+
+.brass-border {
+  border: 1px solid rgba(212, 168, 83, 0.3);
+}
+
+.brass-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 168, 83, 0.3), transparent);
+}
+
+.skill-bar-bg {
+  background: rgba(10, 22, 40, 0.8);
+  border: 1px solid rgba(212, 168, 83, 0.15);
+}
+
+.nautical-text {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-link {
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-link:hover {
+  background: rgba(212, 168, 83, 0.08);
+  border-left-color: rgba(212, 168, 83, 0.3);
+}
+
+.sidebar-link-active {
+  background: rgba(212, 168, 83, 0.12) !important;
+  border-left-color: var(--color-brass-400) !important;
+  color: var(--color-brass-400) !important;
+}
+
+.card-hover {
+  transition: all 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(212, 168, 83, 0.1);
+  border-color: rgba(212, 168, 83, 0.4);
+}
+
+input, select, textarea {
+  background: rgba(10, 22, 40, 0.8);
+  border: 1px solid rgba(212, 168, 83, 0.2);
+  color: var(--color-parchment-100);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--color-brass-400);
+  box-shadow: 0 0 0 2px rgba(212, 168, 83, 0.15);
+}
+
+select option {
+  background: var(--color-navy-900);
+  color: var(--color-parchment-100);
+}
+
+/* Recharts tooltip styling override */
+.recharts-tooltip-wrapper {
+  z-index: 100;
+}
+
+/* Custom range input for pirate theme */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: rgba(10, 22, 40, 0.8);
+  border: 1px solid rgba(212, 168, 83, 0.15);
+  border-radius: 3px;
+  padding: 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-brass-400);
+  cursor: pointer;
+  border: 2px solid var(--color-navy-900);
+  box-shadow: 0 0 4px rgba(212, 168, 83, 0.4);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-brass-400);
+  cursor: pointer;
+  border: 2px solid var(--color-navy-900);
+  box-shadow: 0 0 4px rgba(212, 168, 83, 0.4);
+}
+
+/* Role badge styles */
+.role-captain { background: rgba(212, 168, 83, 0.15); color: #d4a853; border-color: rgba(212, 168, 83, 0.3); }
+.role-quartermaster { background: rgba(201, 149, 42, 0.15); color: #c9952a; border-color: rgba(201, 149, 42, 0.3); }
+.role-bosun { background: rgba(42, 139, 168, 0.15); color: #3dabbf; border-color: rgba(42, 139, 168, 0.3); }
+.role-master-gunner { background: rgba(220, 38, 38, 0.15); color: #f87171; border-color: rgba(220, 38, 38, 0.3); }
+.role-lookout { background: rgba(61, 171, 191, 0.15); color: #3dabbf; border-color: rgba(61, 171, 191, 0.3); }
+.role-shipwright { background: rgba(5, 150, 105, 0.15); color: #34d399; border-color: rgba(5, 150, 105, 0.3); }
+.role-deckhand { background: rgba(30, 58, 110, 0.2); color: #9ca3af; border-color: rgba(30, 58, 110, 0.3); }
+
+/* Animation utilities */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+/* Scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-navy-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-navy-600);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brass-500);
+}
